@@ -1,5 +1,4 @@
 const express = require('express');
-const passport = require('passport');
 
 const Mongo = require('./backend/database/mongo.js');
 
@@ -9,9 +8,7 @@ const SERVER_PORT = process.env.PORT || 3001;
 // Middleware
 application.use(express.urlencoded({ extended: false }));
 application.use(express.json());
-application.use(express.static("./client/build"));
-application.use(passport.initialize(null));
-application.use(passport.session(null));
+application.use(express.static("./client/build/"));
 
 // Connect to MongoDB
 Mongo.connect();
