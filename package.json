@@ -1,0 +1,30 @@
+{
+  "name": "MickAriasWebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mick756/MickAriasWebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mick756/MickAriasWebsite/issues"
+  },
+  "homepage": "https://github.com/Mick756/MickAriasWebsite#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "google-id-token-verifier": "^0.2.3",
+    "mongoose": "^5.7.7",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "simple-crypto-js": "^2.2.0"
+  }
+}

@@ -1,0 +1,9 @@
+*::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.Align-Center {
+    text-align: center;
+}

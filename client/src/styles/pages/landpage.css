@@ -1,0 +1,17 @@
+.LeftContainer {
+    float: left;
+    border: 1px solid black;
+    width: 47%;
+    height: 810px;
+    margin: 18px;
+    padding: 7px;
+}
+
+.RightContainer {
+    float: left;
+    border: 1px solid black;
+    width: 47%;
+    height: 810px;
+    margin: 18px;
+    padding: 7px;
+}
