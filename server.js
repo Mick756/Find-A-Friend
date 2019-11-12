@@ -4,7 +4,7 @@ const passport = require('passport');
 const Mongo = require('./backend/database/mongo.js');
 
 const application = express();
-const SERVER_PORT = 3001 || process.env.PORT;
+const SERVER_PORT = process.env.PORT || 3001;
 
 // Middleware
 application.use(express.urlencoded({ extended: false }));
