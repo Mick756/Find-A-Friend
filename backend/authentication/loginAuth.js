@@ -1,57 +1,55 @@
-const Mongo = require('../database/mongo.js');
-const API = require('../database/api.js');
+const API = require('../api.js');
 const axios = require('axios');
 
-let verifier = require('google-id-token-verifier');
-let clientId = '1066775516443-ir1ln4htkr7up216i8ktko452s3p0vb8.apps.googleusercontent.com';
+const Sequelize = require('../database/sequelize.js');
+const User = Sequelize.Database.User;
+
+async function verifyToken(token) {
+    let data = await axios.post("https://www.googleapis.com/oauth2/v3/tokeninfo", {id_token: token});
+    return data;
+}
 
 module.exports = function (app) {
 
-    app.post('/auth/google_token', async function (req, res) {
+    app.post('/auth/add/user', async function (req, res) {
         let token = req.body.token;
-        verifier.verify(token, clientId, function (err, tokenInfo) {
-            if (err) {
-                res.json(false);
-                return;
-            }
-            if (tokenInfo) {
+        let user = await API.addUser(token);
+        res.json(user);
+    });
 
-                let admin = tokenInfo.email === "mick756@gmail.com";
+    app.get('/auth/has_taken_quiz/:email', async function (req, res) {
+        let email = req.params.email;
 
-                res.json({
-                    response: tokenInfo,
-                    admin: admin
-                });
+        API.userExistsByEmail(email).then(result => {
+
+            if (result.dataValues) {
+                res.json({taken: result.dataValues.taken_survey, quiz: result.dataValues.survey});
             } else {
                 res.json(false);
             }
+
         });
     });
 
-    app.get("/auth/add/user/:token", async function (req, res) {
+    app.post('/auth/complete_survey/:email', async function (req, res) {
+        let email = req.params.email;
+        let survey = req.body;
 
-        let token = req.params.token;
-        await axios.post('/auth/google_token', {token: token}).then(async function (tokenInfo) {
+        console.log("email", email);
 
-            if (tokenInfo) {
+        API.userExistsByEmail(email).then(result => {
 
-                let exists = await API.userExistsByEmail(tokenInfo.email);
-                if (!exists) {
-
-                    let added = await API.addUser(token);
-                    console.log(added);
-                    await res.json(added);
-
-                } else {
-                    let user = await API.findUser(tokenInfo.email);
-                    await res.json(user);
-                }
-
-            } else {
-                await res.json("Incorrect token info.");
+            if (result.dataValues) {
+                API.updateUserSurvey(email, survey);
+                res.json(true);
+                return;
             }
-
-        }).catch(function (error) {res.json(error);});
-
+            res.json(false);
+        });
     });
+
+    app.get('/auth/all_users', async function (req, res) {
+        let users = await User.findAll();
+        res.json(users);
+    })
 };

@@ -1,0 +1,38 @@
+.QuizTitle {
+    text-align: center;
+    font-size: 40px;
+}
+
+.QuizInstructions {
+    font-size: 18px;
+    background-color: #328cc1;
+    text-align: center;
+    padding: 15px;
+    width: 50%;
+    margin: 30px auto;
+}
+
+.QuizQuestion {
+    font-size: 20px;
+}
+
+.AnswerButton {
+    padding: 10px 20px 10px 20px;
+    background-color: #d98310;
+    border: transparent;
+    margin: 0 5px 0 5px;
+    font-size: 16px;
+}
+
+.AnswerButtonSelected {
+    background-color: #083c5d;
+}
+
+.SubmitQuizButton {
+    padding: 10px 20px 10px 20px;
+    background-color: #d98310;
+    border: transparent;
+    margin: 0 0 100px 0;
+    font-size: 20px;
+    width: 100%;
+}

@@ -10,21 +10,8 @@ async function getUser() {
         return false;
 }
 
-async function authToken() {
-
-    if (localStorage.getItem('token') !== null) {
-        await axios.post('/auth/google_token', {token: localStorage.getItem('token')}).then(response => {
-            if (response.data == false) {
-                localStorage.removeItem('token');
-                return false;
-            } else {
-                return response.data;
-            }
-        }).catch(error => {
-            return false;
-        });
-    }
-
+async function verifyToken(token) {
+    return axios.post("https://www.googleapis.com/oauth2/v3/tokeninfo", {id_token: token});
 }
 
 
@@ -32,7 +19,7 @@ export default {
     getUser: function(id) {
         return getUser(id);
     },
-    authToken: function() {
-        return authToken();
+    verifyToken: function(token) {
+        return verifyToken(token);
     }
 }

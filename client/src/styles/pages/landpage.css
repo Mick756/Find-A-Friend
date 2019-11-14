@@ -1,17 +1,26 @@
-.LeftContainer {
-    float: left;
-    border: 1px solid black;
-    width: 47%;
-    height: 810px;
-    margin: 18px;
-    padding: 7px;
+.NewsContainer {
+    width: 100%;
+    margin: 5px 0 5px 0;
 }
 
-.RightContainer {
+.TakeQuizButton {
+    border: transparent;
+    font-size: 25px;
+    color: white;
+    background-color: #d98310;
+    width: 80%;
+    padding: 5px 10px 5px 10px;
+    margin: 20px 9% 20px 9%;
+}
+
+.ActivityContainer {
+    text-align: center;
+    background-color: #328cc1;
+    padding: 5px;
+    width: 300px;
     float: left;
-    border: 1px solid black;
-    width: 47%;
-    height: 810px;
-    margin: 18px;
-    padding: 7px;
+}
+
+.ActivityName {
+    font-size: 25px;
 }

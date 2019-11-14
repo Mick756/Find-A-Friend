@@ -1,0 +1,28 @@
+.ProfilePictureLarge {
+    width: 150px;
+    padding: 10px;
+    background-color: #328cc1;
+    margin: 20px 0 0 0;
+    float: left;
+}
+
+.ProfileNameLarge {
+    float: left;
+    margin: 20px 0 0 20px;
+    font-size: 40px;
+}
+
+.ProfileEmailLarge {
+    margin: 20px 0 0 0;
+    font-size: 30px;
+}
+
+.TakenQuizQuestion {
+    font-size: 20px;
+    background-color: #328cc1;
+    text-align: center;
+}
+
+.TakenQuizScore {
+    margin: 0 0 15px 0;
+}

@@ -1,6 +1,6 @@
 const express = require('express');
 
-const Mongo = require('./backend/database/mongo.js');
+const Sequelize = require('./backend/database/sequelize.js');
 
 const application = express();
 const SERVER_PORT = process.env.PORT || 3001;
@@ -11,13 +11,15 @@ application.use(express.json());
 application.use(express.static("./client/build/"));
 
 // Connect to MongoDB
-Mongo.connect();
+Sequelize.Database.sequelize.sync().then(function () {
+    console.log("Connected to MySQL database.")
+});
 
 // Routes
 require('./backend/authentication/loginAuth.js')(application);
 
 application.get('*', function (req, res) {
-    res.sendFile(__dirname + "/client/build/index.html");
+     res.json(false);
 });
 
 application.listen(SERVER_PORT, () => {
