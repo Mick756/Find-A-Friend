@@ -61,7 +61,7 @@ function LandPage(props) {
                         );
                     } else {
                         toRender.push(
-                            <div>
+                            <div className="ActivityContainer">
                                 <p className="ActivityName">{results.data[j].name}<br/></p>
                                 <p>{results.data[j].email}</p>
                             </div>
@@ -87,7 +87,7 @@ function LandPage(props) {
                 <Link to="/quiz"><button className="TakeQuizButton">Click here to take your Quiz!</button></Link>
             </div>
             <div className="NewsContainer">
-                <h1 className="Align-Center">Recent Activity</h1>
+                <h1 className="Align-Center">Contact Similar Users!</h1>
                 {
                     activity
                 }
