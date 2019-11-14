@@ -19,7 +19,7 @@ Sequelize.Database.sequelize.sync().then(function () {
 require('./backend/authentication/loginAuth.js')(application);
 
 application.get('*', function (req, res) {
-     res.json('index.html');
+     res.json(__dirname + '/client/build/index.html');
 });
 
 application.listen(SERVER_PORT, () => {
