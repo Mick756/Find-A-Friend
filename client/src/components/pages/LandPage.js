@@ -51,7 +51,7 @@ function LandPage(props) {
                                 <p>{results.data[j].email}<br/></p>
                                 {
                                     props.loggedIn ?
-                                        <p>Similarity Score: { Math.round(100 * Math.abs( (score - parseInt(localStorage.getItem('score'))) / ( (score+parseInt(localStorage.getItem('score'))/2 ))))}%</p>
+                                        <p>Similarity Score: { Math.round(100 - (100 * Math.abs( (score - parseInt(localStorage.getItem('score'))) / ( (score+parseInt(localStorage.getItem('score'))/2 )))))}%</p>
                                         :
                                         <p>Similarity Score: Log in to View</p>
 
