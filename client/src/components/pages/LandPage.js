@@ -6,7 +6,7 @@ import '../../styles/pages/landpage.css';
 
 function LandPage(props) {
 
-    const [activity, setActivity] = useState(getUserActivity());
+    const [activity, setActivity] = useState("");
 
     function getCurrentUserScore() {
         if (props.loggedIn) {
@@ -98,6 +98,9 @@ function LandPage(props) {
             </div>
             <div className="NewsContainer">
                 <h1 className="Align-Center">Contact Similar Users!</h1>
+                {
+                    getUserActivity()
+                }
                 {
                     activity
                 }
