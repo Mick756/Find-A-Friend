@@ -32,7 +32,7 @@ function LandPage(props) {
     }
 
     function percentDifferent(number1, number2) {
-        let diff = Math.abs((number2 - number1)/number2);
+        let diff = 100 - Math.round(100 * Math.abs((number2 - number1)/number2));
         return diff;
     }
 
